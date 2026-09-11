@@ -12,15 +12,15 @@ export default function Navbar() {
 
   return (
     <header className="bg-[#0A2540] text-white shadow-md sticky top-0 z-50">
-      <div className="container mx-auto px-4 py-3 flex justify-between items-center">
+      <div className="container mx-auto px-4 py-3.5 flex justify-between items-center">
         {/* Logo */}
-        <Link href="/" className="text-lg md:text-2xl font-bold tracking-wider flex-shrink-0" onClick={closeMenu}>
+        <Link href="/" className="text-lg md:text-2xl font-black tracking-wider flex-shrink-0" onClick={closeMenu}>
           ADEN <span className="text-[#FF6B00]">DIGITAL</span> ACADEMY
         </Link>
 
         {/* Bouton Hamburger (mobile uniquement) */}
         <button
-          className="md:hidden flex flex-col justify-center items-center w-9 h-9 gap-1.5 focus:outline-none"
+          className="md:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5 focus:outline-none p-1"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Menu"
         >
@@ -30,32 +30,40 @@ export default function Navbar() {
         </button>
 
         {/* Navigation Desktop */}
-        <nav className="hidden md:flex gap-6 items-center font-medium">
-          <Link href="/boutique" className="hover:text-[#FF6B00] transition">Boutique</Link>
+        <nav className="hidden md:flex gap-6 items-center font-medium text-sm">
           <Link href="/formations" className="hover:text-[#FF6B00] transition">Formations</Link>
+          <Link href="/boutique" className="hover:text-[#FF6B00] transition">Boutique</Link>
           <Link href="/qcm" className="hover:text-[#FF6B00] transition">QCM</Link>
+          <Link href="/contact" className="hover:text-[#FF6B00] transition">Contact</Link>
 
           {status === "authenticated" ? (
-            <div className="flex items-center gap-4 ml-4">
-              <Link href="/mes-cours" className="text-white hover:text-[#FF6B00] transition font-bold">
+            <div className="flex items-center gap-3 ml-3 pl-4 border-l border-white/20">
+              <Link href="/mes-cours" className="text-white hover:text-[#FF6B00] transition font-bold px-2 py-1">
                 Mes Cours
               </Link>
+              <Link href="/profil" className="text-gray-300 hover:text-white transition px-2 py-1">
+                Mon Profil
+              </Link>
               {session?.user?.role === "ADMIN" && (
-                <Link href="/admin/dashboard" className="text-[#FF6B00] border border-[#FF6B00] px-3 py-1 rounded hover:bg-[#FF6B00] hover:text-white transition">
-                  Admin
+                <Link href="/admin/dashboard" className="text-[#FF6B00] border border-[#FF6B00] px-3 py-1 rounded-lg hover:bg-[#FF6B00] hover:text-white transition text-xs font-bold">
+                  ADMIN
                 </Link>
               )}
               <button
                 onClick={() => signOut()}
-                className="bg-red-500 hover:bg-red-600 px-4 py-2 rounded transition"
+                className="bg-red-500/80 hover:bg-red-600 px-3 py-1.5 rounded-lg text-xs font-semibold transition"
               >
                 Déconnexion
               </button>
             </div>
           ) : (
-            <div className="flex gap-3 ml-4">
-              <Link href="/login" className="hover:text-[#FF6B00] transition px-3 py-2">Connexion</Link>
-              <Link href="/register" className="bg-[#FF6B00] hover:bg-[#e56000] px-4 py-2 rounded transition">Inscription</Link>
+            <div className="flex gap-2.5 ml-3 pl-4 border-l border-white/20">
+              <Link href="/login" className="hover:text-[#FF6B00] transition px-3 py-1.5 text-sm">
+                Connexion
+              </Link>
+              <Link href="/register" className="bg-[#FF6B00] hover:bg-[#e56000] px-4 py-1.5 rounded-lg text-sm font-semibold transition shadow">
+                Inscription
+              </Link>
             </div>
           )}
         </nav>
@@ -63,46 +71,52 @@ export default function Navbar() {
 
       {/* Menu Mobile (dropdown) */}
       {menuOpen && (
-        <div className="md:hidden bg-[#0A2540] border-t border-[#1a385b] px-4 pb-4 flex flex-col gap-3 font-medium">
-          <Link href="/boutique" onClick={closeMenu} className="py-3 border-b border-[#1a385b] hover:text-[#FF6B00] transition">
-            🛍️ Boutique
-          </Link>
-          <Link href="/formations" onClick={closeMenu} className="py-3 border-b border-[#1a385b] hover:text-[#FF6B00] transition">
+        <div className="md:hidden bg-[#0A2540] border-t border-white/10 px-4 pb-5 flex flex-col gap-2 font-medium text-sm">
+          <Link href="/formations" onClick={closeMenu} className="py-3 border-b border-white/10 hover:text-[#FF6B00] transition">
             🎓 Formations
           </Link>
-          <Link href="/qcm" onClick={closeMenu} className="py-3 border-b border-[#1a385b] hover:text-[#FF6B00] transition">
+          <Link href="/boutique" onClick={closeMenu} className="py-3 border-b border-white/10 hover:text-[#FF6B00] transition">
+            🛍️ Boutique
+          </Link>
+          <Link href="/qcm" onClick={closeMenu} className="py-3 border-b border-white/10 hover:text-[#FF6B00] transition">
             📝 QCM
+          </Link>
+          <Link href="/contact" onClick={closeMenu} className="py-3 border-b border-white/10 hover:text-[#FF6B00] transition">
+            💬 Contact & FAQ
           </Link>
 
           {status === "authenticated" ? (
-            <>
-              <Link href="/mes-cours" onClick={closeMenu} className="py-3 border-b border-[#1a385b] hover:text-[#FF6B00] transition font-bold">
+            <div className="pt-2 space-y-2">
+              <Link href="/mes-cours" onClick={closeMenu} className="block py-2.5 px-3 bg-white/10 rounded-lg hover:text-[#FF6B00] transition font-bold">
                 📚 Mes Cours
               </Link>
+              <Link href="/profil" onClick={closeMenu} className="block py-2.5 px-3 bg-white/5 rounded-lg hover:text-[#FF6B00] transition">
+                👤 Mon Profil
+              </Link>
               {session?.user?.role === "ADMIN" && (
-                <Link href="/admin/dashboard" onClick={closeMenu} className="py-3 border-b border-[#1a385b] text-[#FF6B00]">
-                  ⚙️ Admin
+                <Link href="/admin/dashboard" onClick={closeMenu} className="block py-2.5 px-3 border border-[#FF6B00] text-[#FF6B00] rounded-lg font-bold">
+                  ⚙️ Tableau de bord Admin
                 </Link>
               )}
-              <p className="text-gray-400 text-sm py-2">
-                Connecté : {session?.user?.name || session?.user?.email}
-              </p>
-              <button
-                onClick={() => { signOut(); closeMenu(); }}
-                className="w-full bg-red-500 hover:bg-red-600 py-3 rounded transition text-center"
-              >
-                Déconnexion
-              </button>
-            </>
+              <div className="pt-2 flex items-center justify-between text-xs text-gray-400">
+                <span>{session?.user?.email}</span>
+                <button
+                  onClick={() => { signOut(); closeMenu(); }}
+                  className="text-red-400 hover:text-red-300 font-semibold"
+                >
+                  Déconnexion
+                </button>
+              </div>
+            </div>
           ) : (
-            <>
-              <Link href="/login" onClick={closeMenu} className="py-3 text-center border border-white rounded hover:border-[#FF6B00] hover:text-[#FF6B00] transition">
+            <div className="pt-3 grid grid-cols-2 gap-3">
+              <Link href="/login" onClick={closeMenu} className="py-2.5 text-center border border-white/30 rounded-xl hover:border-[#FF6B00] hover:text-[#FF6B00] transition">
                 Connexion
               </Link>
-              <Link href="/register" onClick={closeMenu} className="py-3 text-center bg-[#FF6B00] hover:bg-[#e56000] rounded transition">
+              <Link href="/register" onClick={closeMenu} className="py-2.5 text-center bg-[#FF6B00] hover:bg-[#e56000] rounded-xl font-bold transition shadow">
                 Inscription
               </Link>
-            </>
+            </div>
           )}
         </div>
       )}

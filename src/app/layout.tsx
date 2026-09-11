@@ -3,12 +3,13 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { Providers } from "@/components/Providers";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "ADEN DIGITAL ACADEMY",
-  description: "Plateforme de formation et e-commerce",
+  title: "ADEN DIGITAL ACADEMY | Formations d'excellence & Boutique",
+  description: "Plateforme moderne de formation vidéo, évaluation par QCM et boutique e-commerce pour entrepreneurs et professionnels du digital.",
 };
 
 export default function RootLayout({
@@ -24,9 +25,7 @@ export default function RootLayout({
           <main className="flex-grow">
             {children}
           </main>
-          <footer className="bg-[#0A2540] text-white py-6 text-center">
-            <p>&copy; {new Date().getFullYear()} ADEN DIGITAL ACADEMY. Tous droits réservés.</p>
-          </footer>
+          <Footer />
         </Providers>
       </body>
     </html>
