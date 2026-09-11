@@ -33,7 +33,7 @@ export default function AddQcmModal({ formations }: { formations: FormationOptio
     <>
       <button
         onClick={() => setIsOpen(true)}
-        className="bg-[#FF6B00] hover:bg-[#e56000] text-white px-4 py-2 rounded-xl text-sm font-bold shadow-md transition"
+        className="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-xl text-sm font-bold shadow-md transition"
       >
         + Ajouter une question QCM
       </button>
@@ -186,7 +186,7 @@ export default function AddQcmModal({ formations }: { formations: FormationOptio
                   <button
                     type="submit"
                     disabled={loading}
-                    className="px-5 py-2 bg-[#FF6B00] hover:bg-[#e56000] text-white rounded-xl text-sm font-bold disabled:opacity-50 transition shadow"
+                    className="px-5 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-sm font-bold disabled:opacity-50 transition shadow"
                   >
                     {loading ? "Ajout..." : "Enregistrer la question"}
                   </button>

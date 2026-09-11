@@ -46,9 +46,9 @@ export default function AddProductModal() {
     <>
       <button 
         onClick={() => setIsOpen(true)}
-        className="bg-[#FF6B00] text-white px-4 py-2 rounded hover:bg-[#e56000] transition"
+        className="bg-emerald-600 text-white px-4 py-2 rounded-xl hover:bg-emerald-700 transition font-bold text-sm shadow-md"
       >
-        Ajouter un produit
+        + Ajouter un PC ou Accessoire
       </button>
 
       {isOpen && (

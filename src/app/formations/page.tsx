@@ -27,41 +27,42 @@ export default async function Formations() {
       <div className="container mx-auto px-4 max-w-6xl">
         
         {/* Hero Formations */}
-        <div className="bg-gradient-to-r from-[#0A2540] via-[#0f3459] to-[#0A2540] text-white rounded-3xl p-8 md:p-12 mb-12 shadow-md relative overflow-hidden">
+        <div className="bg-gradient-to-r from-[#0A2540] via-[#0f3459] to-[#0A2540] text-white rounded-3xl p-8 md:p-12 mb-12 shadow-md relative overflow-hidden border border-gray-800">
           <div className="relative z-10 max-w-2xl">
-            <span className="bg-[#FF6B00] text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
-              Cursus Certifiants
+            <span className="bg-emerald-500 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider text-white">
+              Formations Pratiques & Certifiantes
             </span>
             <h1 className="text-3xl md:text-5xl font-black mt-3 mb-3">
-              Nos Formations Vidéo
+              Informatique & Intelligence Artificielle
             </h1>
             <p className="text-gray-300 text-sm md:text-base leading-relaxed mb-6">
-              Développez des compétences pratiques recherchées sur le marché : programmation, marketing digital, e-commerce et entrepreneuriat.
+              Acquérez la maîtrise totale de votre ordinateur (bureautique, Windows, productivité) et découvrez comment exploiter la puissance des outils d'Intelligence Artificielle (IA) dans votre travail.
             </p>
             <div className="flex flex-wrap gap-3 text-xs">
-              <span className="bg-white/10 px-3 py-1.5 rounded-xl backdrop-blur-sm">🎓 Certificat à l'issue</span>
-              <span className="bg-white/10 px-3 py-1.5 rounded-xl backdrop-blur-sm">⚡ Accès Immédiat 24/7</span>
+              <span className="bg-white/10 px-3 py-1.5 rounded-xl backdrop-blur-sm">💻 Maîtrise de l'Outil Informatique</span>
+              <span className="bg-white/10 px-3 py-1.5 rounded-xl backdrop-blur-sm">🤖 Utilisation Pratique de l'IA</span>
               <span className="bg-white/10 px-3 py-1.5 rounded-xl backdrop-blur-sm">📝 Évaluation par QCM</span>
+              <span className="bg-white/10 px-3 py-1.5 rounded-xl backdrop-blur-sm">🎓 Attestation à la clé</span>
             </div>
           </div>
           <div className="absolute right-[-10px] bottom-[-20px] text-9xl opacity-10 font-black select-none pointer-events-none">
-            🎓
+            💡
           </div>
         </div>
 
         {/* Grille des Formations */}
         {formations.length === 0 ? (
-          <div className="bg-white rounded-3xl p-16 text-center max-w-md mx-auto shadow-sm border border-gray-100">
-            <div className="text-5xl mb-4">📚</div>
-            <h3 className="text-xl font-bold text-[#0A2540] mb-2">Formations en préparation</h3>
+          <div className="bg-white rounded-3xl p-16 text-center max-w-md mx-auto shadow-sm border border-gray-200">
+            <div className="text-5xl mb-4">💻</div>
+            <h3 className="text-xl font-bold text-[#0A2540] mb-2">Formations en cours de planification</h3>
             <p className="text-gray-500 text-sm mb-6">
-              Nos formateurs finalisent actuellement les prochains cursus.
+              Nos modules en maîtrise informatique et outils d'intelligence artificielle arrivent sous peu.
             </p>
             <Link
               href="/contact"
-              className="inline-block px-6 py-2.5 bg-[#FF6B00] text-white font-bold rounded-xl text-sm hover:bg-[#e56000] transition"
+              className="inline-block px-6 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl text-sm transition"
             >
-              Être alerté des sorties
+              Être informé des sessions
             </Link>
           </div>
         ) : (
@@ -71,7 +72,7 @@ export default async function Formations() {
               return (
                 <div
                   key={formation.id}
-                  className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden flex flex-col hover:shadow-xl transition-all duration-300 group"
+                  className="bg-white rounded-2xl shadow-sm border border-gray-200/80 overflow-hidden flex flex-col hover:shadow-xl transition-all duration-300 group"
                 >
                   {/* Miniature */}
                   <div className="relative h-56 bg-gray-100 overflow-hidden">
@@ -83,8 +84,8 @@ export default async function Formations() {
                         className="object-cover group-hover:scale-105 transition-transform duration-300"
                       />
                     ) : (
-                      <div className="absolute inset-0 bg-gradient-to-tr from-[#0A2540] to-blue-900 flex items-center justify-center text-white font-bold text-lg p-4 text-center">
-                        🎓 {formation.title}
+                      <div className="absolute inset-0 bg-gradient-to-tr from-[#0A2540] to-slate-800 flex items-center justify-center text-white font-bold text-base p-4 text-center">
+                        💻 {formation.title}
                       </div>
                     )}
 
@@ -93,7 +94,7 @@ export default async function Formations() {
                         {formation.videos.length} {formation.videos.length > 1 ? "vidéos" : "vidéo"}
                       </span>
                       {formation.qcms.length > 0 && (
-                        <span className="bg-[#FF6B00]/90 backdrop-blur-sm text-white text-[10px] font-bold px-2 py-0.5 rounded-full">
+                        <span className="bg-emerald-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">
                           ✓ QCM inclus
                         </span>
                       )}
@@ -101,7 +102,7 @@ export default async function Formations() {
 
                     {isPurchased && (
                       <div className="absolute top-3 left-3">
-                        <span className="bg-emerald-500 text-white text-[11px] font-bold px-2.5 py-1 rounded-full shadow-sm">
+                        <span className="bg-emerald-600 text-white text-[11px] font-bold px-2.5 py-1 rounded-full shadow-sm">
                           ✓ Déjà acquise
                         </span>
                       </div>
@@ -110,17 +111,17 @@ export default async function Formations() {
 
                   {/* Contenu */}
                   <div className="p-6 flex-grow flex flex-col">
-                    <h3 className="font-bold text-lg text-[#0A2540] mb-2 line-clamp-2 group-hover:text-[#FF6B00] transition">
+                    <h3 className="font-bold text-lg text-[#0A2540] mb-2 line-clamp-2 group-hover:text-emerald-600 transition">
                       {formation.title}
                     </h3>
                     <p className="text-gray-600 text-sm mb-6 line-clamp-3 leading-relaxed">
-                      {formation.description || "Formation pratique dispensée par nos experts avec exercices réels."}
+                      {formation.description || "Formation pratique dispensée par nos formateurs pour développer votre autonomie."}
                     </p>
 
                     <div className="mt-auto pt-4 border-t border-gray-100 flex items-center justify-between">
                       <div>
                         <span className="text-[10px] text-gray-400 block uppercase font-medium">Tarif</span>
-                        <span className="text-xl font-black text-[#FF6B00]">
+                        <span className="text-xl font-black text-emerald-600">
                           {formation.price.toLocaleString("fr-FR")} FCFA
                         </span>
                       </div>
@@ -135,7 +136,7 @@ export default async function Formations() {
                       ) : (
                         <Link
                           href={`/formations/${formation.id}`}
-                          className="px-4 py-2.5 bg-[#FF6B00] hover:bg-[#e56000] text-white font-bold rounded-xl text-xs transition shadow-sm"
+                          className="px-4 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl text-xs transition shadow-sm"
                         >
                           Détails & Achat →
                         </Link>

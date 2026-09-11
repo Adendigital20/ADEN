@@ -35,15 +35,15 @@ export default async function ProfilPage() {
       <div className="container mx-auto px-4 max-w-5xl">
         
         {/* En-tête profil */}
-        <div className="bg-gradient-to-r from-[#0A2540] to-[#1a385b] text-white p-8 md:p-10 rounded-3xl shadow-md mb-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+        <div className="bg-gradient-to-r from-[#0A2540] to-[#143d66] text-white p-8 md:p-10 rounded-3xl shadow-md mb-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 border border-gray-800">
           <div className="flex items-center gap-5">
-            <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-[#FF6B00] text-white flex items-center justify-center font-black text-2xl md:text-3xl shadow-lg uppercase">
+            <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-emerald-500 text-white flex items-center justify-center font-black text-2xl md:text-3xl shadow-lg uppercase">
               {user.name ? user.name.charAt(0) : user.email.charAt(0)}
             </div>
             <div>
               <div className="flex items-center gap-2">
                 <h1 className="text-2xl md:text-3xl font-bold">{user.name || "Étudiant ADEN"}</h1>
-                <span className="bg-[#FF6B00] text-xs font-bold px-2.5 py-0.5 rounded-full">
+                <span className="bg-emerald-500 text-xs font-bold px-2.5 py-0.5 rounded-full">
                   {user.role}
                 </span>
               </div>
@@ -61,7 +61,7 @@ export default async function ProfilPage() {
             {user.role === "ADMIN" && (
               <Link
                 href="/admin/dashboard"
-                className="px-5 py-2.5 bg-[#FF6B00] text-white font-bold rounded-xl text-sm hover:bg-[#e56000] transition shadow"
+                className="px-5 py-2.5 bg-emerald-600 text-white font-bold rounded-xl text-sm hover:bg-emerald-700 transition shadow"
               >
                 Administration
               </Link>

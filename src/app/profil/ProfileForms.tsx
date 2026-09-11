@@ -148,7 +148,7 @@ export default function ProfileForms({ initialName, email }: { initialName: stri
             <button
               type="submit"
               disabled={passLoading}
-              className="px-6 py-2.5 bg-[#FF6B00] hover:bg-[#e56000] text-white rounded-xl text-sm font-semibold transition shadow-sm disabled:opacity-50"
+              className="px-6 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-sm font-semibold transition shadow-sm disabled:opacity-50"
             >
               {passLoading ? "Modification..." : "Changer mon mot de passe"}
             </button>

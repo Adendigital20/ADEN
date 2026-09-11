@@ -19,7 +19,10 @@ export default async function AdminProductsPage() {
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="flex justify-between items-center mb-6">
-        <h1 className="text-2xl font-bold text-[#0A2540]">Gestion des Produits</h1>
+        <div>
+          <h1 className="text-2xl font-bold text-[#0A2540]">Gestion Boutique (PC & Accessoires)</h1>
+          <p className="text-xs text-gray-500 mt-1">Ajoutez vos ordinateurs portables, PC de bureau et accessoires.</p>
+        </div>
         <AddProductModal />
       </div>
 

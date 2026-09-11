@@ -8,8 +8,8 @@ import Footer from "@/components/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "ADEN DIGITAL ACADEMY | Formations d'excellence & Boutique",
-  description: "Plateforme moderne de formation vidéo, évaluation par QCM et boutique e-commerce pour entrepreneurs et professionnels du digital.",
+  title: "ADEN DIGITAL ACADEMY | Informatique, Intelligence Artificielle & Vente de PC",
+  description: "Formation pratique en informatique, maîtrise des outils d'Intelligence Artificielle (IA) et vente d'ordinateurs (PC) et accessoires informatiques.",
 };
 
 export default function RootLayout({
