@@ -17,8 +17,11 @@ export default async function MesCours() {
     include: {
       formation: {
         include: {
-          videos: true,
-          videoProgress: { where: { userId: session.user.id } }
+          videos: {
+            include: {
+              videoProgress: { where: { userId: session.user.id } }
+            }
+          }
         }
       }
     },
@@ -41,7 +44,7 @@ export default async function MesCours() {
           {purchases.map((purchase) => {
             const formation = purchase.formation;
             const totalVideos = formation.videos.length;
-            const completedVideos = formation.videoProgress.filter(p => p.completed).length;
+            const completedVideos = formation.videos.filter(v => v.videoProgress.some(p => p.completed)).length;
             const progressPercentage = totalVideos > 0 ? Math.round((completedVideos / totalVideos) * 100) : 0;
 
             return (
