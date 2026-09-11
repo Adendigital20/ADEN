@@ -2,8 +2,7 @@
 
 import { prisma } from "@/lib/prisma";
 import { revalidatePath } from "next/cache";
-import fs from "node:fs";
-import path from "node:path";
+import { put } from "@vercel/blob";
 
 export async function addProduct(formData: FormData) {
   try {
@@ -16,20 +15,11 @@ export async function addProduct(formData: FormData) {
     let image = null;
 
     if (file && file.size > 0) {
-      const buffer = Buffer.from(await file.arrayBuffer());
-      const uploadDir = path.join(process.cwd(), "public/uploads");
-      
-      if (!fs.existsSync(uploadDir)) {
-        fs.mkdirSync(uploadDir, { recursive: true });
-      }
-
-      const ext = path.extname(file.name) || ".jpg";
-      const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
-      const filename = uniqueSuffix + ext;
-      const filepath = path.join(uploadDir, filename);
-      
-      fs.writeFileSync(filepath, buffer);
-      image = `/uploads/${filename}`;
+      // Upload vers Vercel Blob (cloud) au lieu du dossier local
+      const blob = await put(`products/${Date.now()}-${file.name}`, file, {
+        access: "public",
+      });
+      image = blob.url;
     }
 
     if (!image) {
